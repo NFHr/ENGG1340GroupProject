@@ -23,5 +23,5 @@ Game Features:
 - [ ] Print the chess board with a simple or fancy style prefered by user.
 - [ ] Play the board with 2 playeres.
 - [ ] Judge the dead board and winner board with colored text.
-- [ ] Introduce with AI opponent (adjustable diffculties).
-- [ ] Give player hint in AI fighting when requested.
+- [ ] ~~Introduce with AI opponent (adjustable diffculties).~~
+- [ ] ~~Give player hint in AI fighting when requested.~~
