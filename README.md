@@ -1,4 +1,4 @@
-# ENGG1340 Group Project - Notakto with AI
+# ENGG1340 Group Project - Notakto
 
 ### Group 185
 
