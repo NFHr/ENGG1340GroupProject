@@ -1,12 +1,12 @@
 FLAGS = -pedantic-errors -std=c++11
 
-main.o: main.cpp
+main.o: ./src/main.cpp
 	g++ $(FLAGS) -c $<
 
-initializing.o: initializing.cpp
+initializing.o: ./src/initializing.cpp
 	g++ $(FLAGS) -c $<
 
-gaming.o: gaming.cpp
+gaming.o: ./src/gaming.cpp
 	g++ $(FLAGS) -c $<
 
 Notakto: main.o initializing.o gaming.o
