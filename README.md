@@ -19,8 +19,7 @@ Check further descriptions here: **[Wikipedia](https://en.wikipedia.org/wiki/Not
 ****
 
 Game Features:
-- [ ] Rich Welcome message
-- [ ] A game saving that count the number of player wins, and game options.
+- [ ] Saving file include the number of wins, and game options.
 - [ ] Initial with 3x3 chess board for the number of selected range(1-6).
 - [ ] Print the chess board.
 - [ ] Play the board with 2 playeres.
