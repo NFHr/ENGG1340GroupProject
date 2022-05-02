@@ -1,6 +1,7 @@
 // Contaning the function for initaling before the game starts.
 #include <fstream>
 #include "game.h"
+
 using namespace std;
 
 void NameSetting(int winCountA, int winCountB)

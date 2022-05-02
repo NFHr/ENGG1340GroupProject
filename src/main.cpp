@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <fstream>
-#include <time.h>
 #include "game.h"
 
 int sizeBoard;
@@ -40,34 +39,32 @@ int main()
     }
 
     // the Gaming Part
-    int Player = 0;
+    int PlayerNum = 0;
+    string command;
     char moveID;
     int movePos;
-    string command;
+    int specialMoves = rand() % 2 + 1;
     while (1)
     {
         printBoard(board);
-        command = judgeInput(moveID, movePos);
+        command = judgeInput(moveID, movePos, PlayerNum, specialMoves);
         if (command == "ADD")
         {
-            cout << "Player" << specialSkill(Player);
+            specialSkill(PlayerNum, specialMoves, board);
+            Move(board, globalID, rand() % 9);
         }
-
         else if (command == "GIVEUP")
-        {
-            cout << "Player" << ((Player + 1) % 2) + 1 << "wins";
             break;
-        }
         else
         {
             Move(board, moveID, movePos);
             if (judgeWinner(board) == 1)
             {
-                cout << "Player" << ((Player + 1) % 2) + 1 << "wins";
-                addWins(((Player + 1) % 2) + 1);
+                addWins(((PlayerNum + 1) % 2) + 1);
                 break;
             }
         }
-        Player = (Player + 1) % 2;
+        PlayerNum = (PlayerNum + 1) % 2;
     }
+    cout << "Player" << ((PlayerNum + 1) % 2) + 1 << "wins";
 }

@@ -1,73 +1,46 @@
 #include "game.h"
 
-string judgeInput(char &moveID, int &movePos){
+//TO-DO 输入保护
+//输入: 仍可操作的棋盘的编号(字母)(0-8)范围的数字
+//特殊输入：输入"SKILL" 会返回 "ADD", 输入GIVEUP会返回 "GIVEUP"
+//输出: "Player 'NumToName(PlayerNum)' (SKILL Remains: 'specialMove'): "
+//如果是棋盘编号则修改
+string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove)
+{
+    string userInput;
     return "";
 }
 
-void addPiece(Board *head)  //Append the piece backward
-{
-    Board *tail = head;
-    Board *newPiece = new Board;
-    newPiece->p.ID = globalID;
-    newPiece->next = NULL;
+string NumToName(int PlayerNum){
+    string Pikachu;
+    if (PlayerNum == 0)
+        return PlayerA;
+    else
+        return PlayerB;
+}
 
-    if (head == NULL)
-    {
-        head = newPiece;
-    }
+void specialSkill(int PlayerNum, int &specialMove, Board *board)
+{
+    specialMove--;
+    if (countLength(board) == sizeBoard)
+        cout << "The Board is full! One chance is lost!";
     else
     {
-        while (tail->next != NULL)  //go to the tail
-            tail = tail->next;
-        tail->next = newPiece;
+        cout << "PLAYER " << NumToName(PlayerNum) << "  used SPECIAL MOVEMENT!!";
+        addPiece(board);
     }
-    globalID++;
 }
 
-void deletePiece(Board *current)
+void Move(Board *Board, char moveID, int movePos)
 {
-    Board *dead = current;
-    current = current->next;
-    delete dead;
 }
 
-Board *findPiece(Board *head, char aID)
+
+void judgeDead(Board Piece)
 {
-    Board *current = head;
-    while (current != NULL)
-    {
-        if (current->p.ID == aID)
-            return current;
-        else
-            current = current->next;
-    }
-    return NULL;
 }
 
-int countLength(Board *head){
-     return 0;
-}
-
-void printBoard(Board *board){
-
-}
-
-
-
-void judgeDead(){
-
-}
-
-bool judgeWinner(Board *board){
+bool judgeWinner(Board *board)
+{
     return 0;
 }
-
-string specialSkill(int Player){
-    return "";
-}
-
-void Move(Board *Board, char moveID, int movePos){
-
-}
-
-

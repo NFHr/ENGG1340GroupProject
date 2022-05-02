@@ -33,14 +33,15 @@ void getParameters();
 void addWins(int P);
 
 // Funcions during the game
-string judgeInput(char &moveID, int &movePos);
+string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove);
 bool judgeWinner(Board *board);
-string specialSkill(int Player);
+void specialSkill(int Player, int &specialMove, Board *board);
 
 // functions to handle the linked list
 void printBoard(Board *head);
 void deletePiece(Board *head);
 void addPiece(Board *head);
 void Move(Board *Board, char moveID, int movePos);
+int countLength(Board *head);
 
 #endif

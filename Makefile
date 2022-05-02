@@ -9,7 +9,10 @@ initializing.o: ./src/initializing.cpp
 gaming.o: ./src/gaming.cpp
 	g++ $(FLAGS) -c $<
 
-Notakto: main.o initializing.o gaming.o
+boarding.o: ./src/boarding.cpp
+	g++ $(FLAGS) -c $<
+
+Notakto: main.o initializing.o gaming.o boarding.o
 	g++ $(FLAGS) $^ -o $@
 
 clean:
