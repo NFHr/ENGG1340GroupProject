@@ -36,7 +36,6 @@ bool showFirstTime()
          << "Coninue as a Guest? (y/n)" << endl
          << ": ";
     cin >> userInput;
-
     if (userInput == "y")
     {
         PlayerA = "GuestA";

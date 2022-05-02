@@ -26,21 +26,21 @@ extern string PlayerA, PlayerB;
 extern char globalID; // globalID is the ID of the tail Piece in the Board.
 
 // Functions outside playing
-extern bool showFirstTime();
-extern bool showWelcome();
-extern void NameSetting(int winsA, int winsB);
-extern void getParameters();
-extern void addWins(int P);
+bool showFirstTime();
+bool showWelcome();
+void NameSetting(int winsA, int winsB);
+void getParameters();
+void addWins(int P);
 
 // Funcions during the game
 string judgeInput(char &moveID, int &movePos);
-extern bool judgeWinner(Board *board);
-extern string specialSkill(int Player);
+bool judgeWinner(Board *board);
+string specialSkill(int Player);
 
 // functions to handle the linked list
-extern void printBoard(Board *head);
-extern void deletePiece(Board *head);
-extern void addPiece(Board *head);
-extern void Move(Board *Board, char moveID, int movePos);
+void printBoard(Board *head);
+void deletePiece(Board *head);
+void addPiece(Board *head);
+void Move(Board *Board, char moveID, int movePos);
 
 #endif
