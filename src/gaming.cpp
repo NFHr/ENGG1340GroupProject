@@ -5,6 +5,7 @@
 //特殊输入：输入"SKILL" 会返回 "ADD", 输入GIVEUP会返回 "GIVEUP"
 //输出: "Player 'NumToName(PlayerNum)' (SKILL Remains: 'specialMove'): "
 //如果是棋盘编号则修改
+
 string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove)
 {
     string userInput;
@@ -31,16 +32,40 @@ void specialSkill(int PlayerNum, int &specialMove, Board *board)
     }
 }
 
-void Move(Board *Board, char moveID, int movePos)
+
+bool judgeDead(Board Piece)
 {
+    if (Piece.p.piece[0] == Piece.p.piece[1] && Piece.p.piece[1] == Piece.p.piece[2] && Piece.p.piece[0] == true) return true;
+    if (Piece.p.piece[3] == Piece.p.piece[4] && Piece.p.piece[4] == Piece.p.piece[5] && Piece.p.piece[3] == true) return true;
+    if (Piece.p.piece[6] == Piece.p.piece[7] && Piece.p.piece[7] == Piece.p.piece[8] && Piece.p.piece[6] == true) return true;
+    if (Piece.p.piece[0] == Piece.p.piece[3] && Piece.p.piece[3] == Piece.p.piece[6] && Piece.p.piece[0] == true) return true;
+    if (Piece.p.piece[1] == Piece.p.piece[4] && Piece.p.piece[4] == Piece.p.piece[7] && Piece.p.piece[1] == true) return true;
+    if (Piece.p.piece[2] == Piece.p.piece[5] && Piece.p.piece[5] == Piece.p.piece[8] && Piece.p.piece[2] == true) return true;
+    if (Piece.p.piece[0] == Piece.p.piece[4] && Piece.p.piece[4] == Piece.p.piece[8] && Piece.p.piece[0] == true) return true;
+    if (Piece.p.piece[2] == Piece.p.piece[4] && Piece.p.piece[4] == Piece.p.piece[6] && Piece.p.piece[2] == true) return true;
+    return false;
+}
+void Move(Board *&board, char moveID, int movePos)
+{
+    Board *moveNode = board;
+    while (moveNode)
+    {
+        if (moveNode->p.ID == moveID)
+        {
+            moveNode->p.piece[movePos] = true;
+            if (judgeDead(*moveNode))
+            {
+                deletePiece(board, moveID);
+            }
+            break;
+        }
+        moveNode = moveNode->next;
+    }
 }
 
 
-void judgeDead(Board Piece)
-{
-}
 
 bool judgeWinner(Board *board)
 {
-    return 0;
+    return countLength(board) == 0;
 }
