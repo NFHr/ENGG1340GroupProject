@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include "game.h"
+//#include "gaming.cpp"  没有包含cpp的语法
 
 int sizeBoard;
 string PlayerA, PlayerB;
@@ -47,6 +48,9 @@ int main()
     while (1)
     {
         printBoard(board);
+        PlayerNum = (PlayerNum % 2) + 1;
+        cout << "Player " << PlayerNum << " ";
+        cin >> moveID >> movePos;
         command = judgeInput(moveID, movePos, PlayerNum, specialMoves);
         if (command == "ADD")
         {
@@ -64,7 +68,6 @@ int main()
                 break;
             }
         }
-        PlayerNum = (PlayerNum + 1) % 2;
     }
-    cout << "Player" << ((PlayerNum + 1) % 2) + 1 << "wins";
+    cout << "Player" << PlayerNum % 2 + 1 << "wins";
 }
