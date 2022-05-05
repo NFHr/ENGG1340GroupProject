@@ -32,16 +32,20 @@ void NameSetting(int winsA, int winsB);
 void getParameters();
 void addWins(int P);
 
+string NumToName(int PlayerNum);
+
 // Funcions during the game
-string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove);
-bool judgeWinner(Board *board);
-void specialSkill(int Player, int &specialMove, Board *board);
+string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove);   //1
+bool judgeWinner(Board *board);  //1
+void specialSkill(int Player, int &specialMove, Board *board);  //1
+
+
+
 
 // functions to handle the linked list
 void printBoard(Board *head);
-void deletePiece(Board *head);
-void addPiece(Board *head);
-void Move(Board *Board, char moveID, int movePos);
+void deletePiece(Board *&head,char id);
+void addPiece(Board *&head);
+void Move(Board *&board, char moveID, int movePos);  //1
 int countLength(Board *head);
-
 #endif
