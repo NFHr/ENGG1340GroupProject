@@ -109,3 +109,28 @@ void addWins(int P){
         winCountB++;
     prefFile << PlayerA << " " << PlayerB << endl << winCountA << winCountB;
 }
+void getParameters()
+{
+    srand(time(NULL));
+    int sizeB;
+    cout << "Board (0 or 1-6): ";
+    cin >> sizeB;
+    if (sizeB >= 1 && sizeB <= 6)
+        sizeBoard = sizeB;
+    else if (sizeB == 0)
+        sizeBoard = rand() % 5 + 1;
+    else
+        sizeBoard = -1;
+}
+
+void addWins(int P){
+    int winCountA, winCountB;
+    // Read the Players name.
+    fstream prefFile(".preference", fstream::in | fstream::out | fstream::trunc);
+    prefFile >> PlayerA >> PlayerB >> winCountA >> winCountB;
+    if (P == 0)
+        winCountA++;
+    else
+        winCountB++;
+    prefFile << PlayerA << " " << PlayerB << endl << winCountA << winCountB;
+}
