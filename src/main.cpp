@@ -68,6 +68,7 @@ int main()
             }
         }
     }
+    // the ending part
     cout << "Every piece in the board was dead." << endl
          << "========================================================" << endl
          << "Player" << PlayerNum % 2 + 1 << " " << NumToName(PlayerNum % 2 + 1) << " wins." << endl;
