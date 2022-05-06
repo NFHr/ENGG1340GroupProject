@@ -5,6 +5,7 @@
 using namespace std;
 
 void NameSetting()
+//The name setting of the initial interface 
 {
     system("clear");
     fstream prefSet;
@@ -31,6 +32,7 @@ void NameSetting()
 }
 
 bool showWelcome()
+//welcome interface
 {
     string userInput;
     if (isGuest == 1)
@@ -68,6 +70,7 @@ bool showWelcome()
 }
 
 void getParameters()
+// the number of boards that players want to play
 {
     srand(time(NULL));
     int sizeB;
@@ -85,6 +88,7 @@ void getParameters()
 }
 
 void addWins(int Player)
+//the winner of the game
 {
     string dummy;
     fstream prefFile;
