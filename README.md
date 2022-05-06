@@ -18,9 +18,15 @@ Check further descriptions here: **[Wikipedia](https://en.wikipedia.org/wiki/Not
 
 ****
 
+
+
+
 Game Features:
 - [ ] Saving file include the number of wins, and game options.
-- [ ] Initial with 3x3 chess board for the number of selected range(1-6).
-- [ ] Print the chess board.
-- [ ] Play the board with 2 playeres.
-- [ ] Judge the dead board and winner board.
+-     (File input/output (e.g., for loading/saving game status))
+
+- [ ] Linked List with chess pieces for the number of selected range(1-5) or random ranges.
+-     (Data structures for storing game status, Generation of random game sets or events, Dynamic memory management)
+
+- [ ] Different cpp file containing different functions.
+-     (Program codes in multiple files)
