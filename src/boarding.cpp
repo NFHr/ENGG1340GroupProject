@@ -47,6 +47,7 @@ void deletePiece(char ID)
 }
 
 int findPiece(char aID)
+// FIND piece of the move 
 {
     int count = 0;
     Board *moveNode = board;
@@ -76,6 +77,7 @@ int countLength()
 }
 
 void printBoard()
+//move piece x to the board
 {
     Board *cutNode = board;
     Board *moveNode = cutNode;
@@ -105,3 +107,4 @@ void printBoard()
         count += 3;
     }
 }
+
