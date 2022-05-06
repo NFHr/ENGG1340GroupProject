@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include "game.h" // global variables and functions definded here
+#include<Windows.h>
 
 int isGuest = 0;
 int sizeBoard, skills = 0;
@@ -11,6 +12,9 @@ Board *board = NULL;
 
 int main()
 {
+    //COLOR
+    system("color E1");
+    SetConsoleTitle(LPCWSTR(L"Notakto"))
     // Welcome Part
     fstream prefFile;
     prefFile.open(".preference");
