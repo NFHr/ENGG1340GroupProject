@@ -1,5 +1,7 @@
 FLAGS = -pedantic-errors -std=c++11
 
+all: Notakto
+
 main.o: ./src/main.cpp
 	g++ $(FLAGS) -c $<
 

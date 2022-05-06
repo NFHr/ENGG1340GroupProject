@@ -1,87 +1,84 @@
 #include "game.h"
 
-
-void addPiece(Board *&head) // Append the piece backward
+void addPiece() // Append the piece backward
 {
-    Board *tail = head;
+    Board *moveNode = board;
     Board *newPiece = new Board;
     newPiece->p.ID = globalID;
     newPiece->next = NULL;
 
-    if (head == NULL)
-    {
-        head = newPiece;
-    }
+    if (board == NULL)
+        board = newPiece;
     else
     {
-        while (tail->next != NULL) // go to the tail
-            tail = tail->next;
-        tail->next = newPiece;
+        while (moveNode->next != NULL) // go to the tail
+            moveNode = moveNode->next;
+        moveNode->next = newPiece;
     }
     globalID++;
 }
 
-void deletePiece(Board *&head,char id)
+void deletePiece(char ID)
 {
-    Board* curNode = NULL;
-    if (head->p.ID == id)
+    int pos = findPiece(ID);
+    Board *moveNode = board;
+    if (pos == 0)
     {
-        if (head->next == NULL)
+        board = moveNode->next;
+        delete moveNode;
+    }
+    else
+    {
+        for (int i = 0; i < pos - 1; i++) // move to the node before the ID's node
+            moveNode = moveNode->next;
+        if (moveNode->next->next == NULL) // if the ID is tail
         {
-            delete head;
-            head = NULL;
+            delete moveNode->next;
+            moveNode->next = NULL;
         }
+
         else
         {
-            Board* temp = head;
-            head = head->next;
-            delete temp;
+            Board *temp_next = moveNode->next->next;
+            delete moveNode->next;
+            moveNode->next = temp_next;
         }
-        return;
-    }
-    while (head)
-    {
-        if (head->p.ID == id)
-        {
-            Board* temp = head;
-            curNode->next = head->next;
-            delete temp;
-            return;
-        }
-        curNode = head;
-        head = head->next;
     }
 }
 
-Board *findPiece(Board *head, char aID)
+int findPiece(char aID)
 {
-    Board *current = head;
-    while (current != NULL)
-    {
-        if (current->p.ID == aID)
-            return current;
-        else
-            current = current->next;
-    }
-    return NULL;
-}
-
-int countLength(Board *head)
-{
-    Board *current = head;
     int count = 0;
-    while (current != NULL)
+    Board *moveNode = board;
+    while (moveNode != NULL)
+    {
+        if (moveNode->p.ID == aID)
+            return count;
+        else
+        {
+            moveNode = moveNode->next;
+            count++;
+        }
+    }
+    return -1;
+}
+
+int countLength()
+{
+    Board *moveNode = board;
+    int count = 0;
+    while (moveNode != NULL)
     {
         count++;
-        current = current->next;
+        moveNode = moveNode->next;
     }
     return count;
 }
 
-void printBoard(Board *board)
+void printBoard()
 {
-    Board* cutNode = board;
-    Board* moveNode = cutNode;
+    Board *cutNode = board;
+    Board *moveNode = cutNode;
     while (moveNode)
     {
         printf("%-7c", moveNode->p.ID);
@@ -89,7 +86,6 @@ void printBoard(Board *board)
     }
     cout << endl;
     int count = 0;
-    
     while (count < 9)
     {
         moveNode = cutNode;
@@ -98,18 +94,14 @@ void printBoard(Board *board)
             for (int i = count; i < count + 3; i++)
             {
                 if (moveNode->p.piece[i])
-                {
                     cout << 'X' << " ";
-                }
                 else
-                {
                     cout << i << " ";
-                }
             }
             cout << " ";
             moveNode = moveNode->next;
         }
-        cout  << endl;
+        cout << endl;
         count += 3;
     }
 }

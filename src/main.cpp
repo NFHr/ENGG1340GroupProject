@@ -1,11 +1,13 @@
 #include <stdlib.h>
 #include <fstream>
-#include "game.h"
-//#include "gaming.cpp"  没有包含cpp的语法
+#include "game.h" // global variables and functions definded here
 
-int sizeBoard;
+int isGuest = 0;
+int sizeBoard, skills = 0;
 string PlayerA, PlayerB;
+int winCountA, winCountB;
 char globalID = 'A';
+Board *board = NULL;
 
 int main()
 {
@@ -14,15 +16,16 @@ int main()
     prefFile.open(".preference");
     if (!prefFile)
     {
-        showFirstTime();
-        system("clear");
+        isGuest = 1; // enable the Guest flag since the saving is not found
+        PlayerA = "Guest";
+        PlayerB = "Guest";
     }
     while (showWelcome() != 1)
         system("clear");
     prefFile.close();
 
     // Asking parameters of before initialzing
-    cout << "Prefer board size before starting. (\"0\" for random)" << endl;
+    cout << "What's your prefered size of board? (\"0\" for random)" << endl;
     getParameters();
     while (sizeBoard == -1)
     {
@@ -32,42 +35,40 @@ int main()
     }
     cout << "========================================================" << endl;
 
-    // Initialze the Board
-    Board *board = NULL;
+    // Initialze the Game
     for (int i = 0; i < sizeBoard; i++)
     {
-        addPiece(board);
+        addPiece();
     }
+    while (skills == 0)
+        skills = rand() % 3;
 
     // the Gaming Part
     int PlayerNum = 0;
     string command;
     char moveID;
     int movePos;
-    int specialMoves = rand() % 2 + 1;
     while (1)
     {
-        printBoard(board);
+        printBoard();
         PlayerNum = (PlayerNum % 2) + 1;
-        cout << "Player " << PlayerNum << " ";
-        cin >> moveID >> movePos;
-        command = judgeInput(moveID, movePos, PlayerNum, specialMoves);
-        if (command == "ADD")
-        {
-            specialSkill(PlayerNum, specialMoves, board);
-            Move(board, globalID, rand() % 9);
-        }
-        else if (command == "GIVEUP")
+        command = judgeInput(moveID, movePos, PlayerNum);
+        if (command == "SKILL")
+            skill(PlayerNum);
+        else if (command == "GIVUP")
             break;
-        else
+        else if (command == "MOVE")
         {
-            Move(board, moveID, movePos);
-            if (judgeWinner(board) == 1)
+            Move(moveID, movePos);
+            if (countLength() == 0)
             {
-                addWins(((PlayerNum + 1) % 2) + 1);
+                if (isGuest == 1)
+                    addWins(((PlayerNum + 1) % 2) + 1);
                 break;
             }
         }
     }
-    cout << "Player" << PlayerNum % 2 + 1 << "wins";
+    cout << "Every piece in the board was dead." << endl
+         << "========================================================" << endl
+         << "Player" << PlayerNum % 2 + 1 << " " << NumToName(PlayerNum % 2 + 1) << " wins." << endl;
 }

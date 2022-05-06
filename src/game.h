@@ -21,31 +21,33 @@ struct Board
     Board *next;
 };
 
-extern int sizeBoard;
+extern int isGuest;
+extern int sizeBoard, skills;
 extern string PlayerA, PlayerB;
+extern int winCountA, winCountB;
 extern char globalID; // globalID is the ID of the tail Piece in the Board.
+extern Board *board;
 
-// Functions outside playing
-bool showFirstTime();
-bool showWelcome();
-void NameSetting(int winsA, int winsB);
-void getParameters();
-void addWins(int P);
+// initializing.cpp
+//  Functions outside playing
+extern bool showWelcome();
+extern void NameSetting(int winsA, int winsB);
+extern void getParameters();
+extern void addWins(int P);
 
-string NumToName(int PlayerNum);
+// gaming.cpp
+//  Funcions during the game
+extern string judgeInput(char &moveID, int &movePos, int PlayerNum);
+extern void skill(int Player);
+extern bool judgeDead(Board Piece);
+extern void Move(char moveID, int movePos);
+extern string NumToName(int PlayerNum);
 
-// Funcions during the game
-string judgeInput(char &moveID, int &movePos, int PlayerNum, int specialMove);   //1
-bool judgeWinner(Board *board);  //1
-void specialSkill(int Player, int &specialMove, Board *board);  //1
-
-
-
-
-// functions to handle the linked list
-void printBoard(Board *head);
-void deletePiece(Board *&head,char id);
-void addPiece(Board *&head);
-void Move(Board *&board, char moveID, int movePos);  //1
-int countLength(Board *head);
+// boarding.cpp
+//  Functions to handle the linked list
+extern void printBoard();
+extern void deletePiece(char ID);
+extern void addPiece();
+extern int countLength();
+extern int findPiece(char aID);
 #endif
