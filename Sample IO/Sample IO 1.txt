@@ -1,0 +1,54 @@
+========================================================
+Welcome to the Notakto,  & .
+   Total battle times: 0.
+   Player  wins: 0.
+   Player  wins: 0.
+========================================================
+ Select Command to Continue (PLAY / NAME / EXIT)
+: NAME
+========================================================
+What's the name of Player 1? (no containing spaces)
+: APPLE
+
+What's the name of Player 2? (no containing spaces)
+: BANANA
+========================================================
+Welcome to the Notakto, APPLE & BANANA.
+   Total battle times: 0.
+   Player APPLE wins: 0.
+   Player BANANA wins: 0.
+========================================================
+ Select Command to Continue (PLAY / NAME / EXIT)
+: PLAY
+========================================================
+What's your prefered size of board? ("0" for random)
+Board (0 or 1-5): 1
+========================================================
+A
+0 1 2
+3 4 5
+6 7 8
+Player 1 "APPLE" (Power Remains: 2): A3
+A
+0 1 2
+X 4 5
+6 7 8
+Player 2 "BANANA" (Power Remains: 2): A2
+A
+0 1 X
+X 4 5
+6 7 8
+Player 1 "APPLE" (Power Remains: 2): A4
+A
+0 1 X
+X X 5
+6 7 8
+Player 2 "BANANA" (Power Remains: 2): A8
+A
+0 1 X
+X X 5
+6 7 X
+Player 1 "APPLE" (Power Remains: 2): A6
+Every piece in the board was dead.
+========================================================
+Player2 BANANA wins.

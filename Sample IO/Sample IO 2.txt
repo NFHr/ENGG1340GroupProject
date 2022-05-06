@@ -1,0 +1,122 @@
+========================================================
+Welcome to the Notakto, APPLE & BANANA.
+   Total battle times: 0.
+   Player APPLE wins: 0.
+   Player BANANA wins: 0.
+========================================================
+ Select Command to Continue (PLAY / NAME / EXIT)
+: PLAY
+========================================================
+What's your prefered size of board? ("0" for random)
+Board (0 or 1-5): 3
+========================================================
+A      B      C
+0 1 2  0 1 2  0 1 2
+3 4 5  3 4 5  3 4 5
+6 7 8  6 7 8  6 7 8
+Player 1 "APPLE" (Power Remains: 2): C2
+A      B      C
+0 1 2  0 1 2  0 1 X
+3 4 5  3 4 5  3 4 5
+6 7 8  6 7 8  6 7 8
+Player 2 "BANANA" (Power Remains: 2): B3
+A      B      C
+0 1 2  0 1 2  0 1 X
+3 4 5  X 4 5  3 4 5
+6 7 8  6 7 8  6 7 8
+Player 1 "APPLE" (Power Remains: 2): B1
+A      B      C
+0 1 2  0 X 2  0 1 X
+3 4 5  X 4 5  3 4 5
+6 7 8  6 7 8  6 7 8
+Player 2 "BANANA" (Power Remains: 2): B4
+A      B      C
+0 1 2  0 X 2  0 1 X
+3 4 5  X X 5  3 4 5
+6 7 8  6 7 8  6 7 8
+Player 1 "APPLE" (Power Remains: 2): B5
+A      C
+0 1 2  0 1 X
+3 4 5  3 4 5
+6 7 8  6 7 8
+Player 2 "BANANA" (Power Remains: 2): SKILL
+New Piece Appended.
+A      C      D
+0 1 2  0 1 X  0 1 2
+3 4 5  3 4 5  X 4 5
+6 7 8  6 7 8  6 7 8
+Player 1 "APPLE" (Power Remains: 1): D4
+A      C      D
+0 1 2  0 1 X  0 1 2
+3 4 5  3 4 5  X X 5
+6 7 8  6 7 8  6 7 8
+Player 2 "BANANA" (Power Remains: 1): C8
+A      C      D
+0 1 2  0 1 X  0 1 2
+3 4 5  3 4 5  X X 5
+6 7 8  6 7 X  6 7 8
+Player 1 "APPLE" (Power Remains: 1): A3
+A      C      D
+0 1 2  0 1 X  0 1 2
+X 4 5  3 4 5  X X 5
+6 7 8  6 7 X  6 7 8
+Player 2 "BANANA" (Power Remains: 1): C4
+A      C      D
+0 1 2  0 1 X  0 1 2
+X 4 5  3 X 5  X X 5
+6 7 8  6 7 X  6 7 8
+Player 1 "APPLE" (Power Remains: 1): D7
+A      C      D
+0 1 2  0 1 X  0 1 2
+X 4 5  3 X 5  X X 5
+6 7 8  6 7 X  6 X 8
+Player 2 "BANANA" (Power Remains: 1): D5
+A      C
+0 1 2  0 1 X
+X 4 5  3 X 5
+6 7 8  6 7 X
+Player 1 "APPLE" (Power Remains: 1): SKILL
+New Piece Appended.
+A      C      E
+0 1 2  0 1 X  0 1 2
+X 4 5  3 X 5  3 4 5
+6 7 8  6 7 X  X 7 8
+Player 2 "BANANA" (Power Remains: 0): A1
+A      C      E
+0 X 2  0 1 X  0 1 2
+X 4 5  3 X 5  3 4 5
+6 7 8  6 7 X  X 7 8
+Player 1 "APPLE" (Power Remains: 0): A4
+A      C      E
+0 X 2  0 1 X  0 1 2
+X X 5  3 X 5  3 4 5
+6 7 8  6 7 X  X 7 8
+Player 2 "BANANA" (Power Remains: 0): A8
+A      C      E
+0 X 2  0 1 X  0 1 2
+X X 5  3 X 5  3 4 5
+6 7 X  6 7 X  X 7 8
+Player 1 "APPLE" (Power Remains: 0): A7
+C      E
+0 1 X  0 1 2
+3 X 5  3 4 5
+6 7 X  X 7 8
+Player 2 "BANANA" (Power Remains: 0): E8
+C      E
+0 1 X  0 1 2
+3 X 5  3 4 5
+6 7 X  X 7 X
+Player 1 "APPLE" (Power Remains: 0): E4
+C      E
+0 1 X  0 1 2
+3 X 5  3 X 5
+6 7 X  X 7 X
+Player 2 "BANANA" (Power Remains: 0): E7
+C
+0 1 X
+3 X 5
+6 7 X
+Player 1 "APPLE" (Power Remains: 0): C5
+Every piece in the board was dead.
+========================================================
+Player2 BANANA wins.
