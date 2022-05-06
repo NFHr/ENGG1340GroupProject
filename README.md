@@ -20,12 +20,15 @@
 ****
 
 #### Game Rules:
-    When enterning the game for the first time, the game would ask you to changing name if you want.
-    After the name was changed, the saving file fuction will be enabled.
+    When enterning the game for the first time, change your name if you want.
+    *After the name was changed, the saving file fuction will be enabled.
     
-    After entering desired size of the board, input Moves to play (example: A0)
-    You can also use a special skill with randomly given usage time to switch the opponent when the board was full,
+    After inputing desired size of the board, you should give movements (example: A0 / SKILL / GIVUP)
+    
+    "SKILL" means you can use a special skill with randomly given usage time to switch the opponent when the board was full,
     or generate a new piece with a random move.
+    
+    "GIVUP" means you can blow yourself up.
     
     When there is no pieces remaining on the board, the opponent win the game.
 
