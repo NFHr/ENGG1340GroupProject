@@ -3,6 +3,7 @@
 string judgeInput(char &moveID, int &movePos, int PlayerNum)
 {
     string userInput;
+    //skill function and judge the proper input of the player 
     while (1)
     {
         cout << "Player " << PlayerNum << " \"" << NumToName(PlayerNum) << "\" "
@@ -31,7 +32,8 @@ string judgeInput(char &moveID, int &movePos, int PlayerNum)
     return "";
 }
 
-string NumToName(int PlayerNum)
+string NumToName(int PlayerNum) 
+// order of player
 {
     if (PlayerNum == 1)
         return PlayerA;
@@ -40,6 +42,7 @@ string NumToName(int PlayerNum)
 }
 
 void skill(int PlayerNum)
+//SPECIAL SKILL FUNCTION
 {
     skills--;
     if (countLength() == sizeBoard && sizeBoard != 1)
@@ -53,6 +56,7 @@ void skill(int PlayerNum)
 }
 
 bool judgeDead(Board Piece)
+// JUDGE the  proper monment of the piece
 {
     if (Piece.p.piece[0] == Piece.p.piece[1] && Piece.p.piece[1] == Piece.p.piece[2] && Piece.p.piece[0] == true)
         return true;
@@ -74,6 +78,7 @@ bool judgeDead(Board Piece)
 }
 
 void Move(char moveID, int movePos)
+//move the piece in the board
 {
     Board *moveNode = board;
     while (moveNode)
