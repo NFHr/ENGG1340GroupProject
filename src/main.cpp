@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <fstream>
 #include "game.h" // global variables and functions definded here
-#include<Windows.h>
 
 int isGuest = 0;
 int sizeBoard, skills = 0;
@@ -12,9 +11,10 @@ Board *board = NULL;
 
 int main()
 {
-    //COLOR
-    system("color E1");
-    SetConsoleTitle(LPCWSTR(L"Notakto"))
+    // Title
+    cout << "\033]0;"
+         << "Notakto - Welcome"
+         << "\007";
     // Welcome Part
     fstream prefFile;
     prefFile.open(".preference");
@@ -29,17 +29,25 @@ int main()
     prefFile.close();
 
     // Asking parameters of before initialzing
-    cout << "What's your prefered size of board? (\"0\" for random)" << endl;
+    cout << "\033[1;1m"
+         << "What's your prefered size of board? (\"0\" for random)"
+         << "\033[0m" << endl;
     getParameters();
     while (sizeBoard == -1)
     {
-        cout << endl
-             << "Wrong size, Please input again!" << endl;
+        cout << "\033[1;31m"
+             << "Wrong size, Please input again!"
+                "\033[0m"
+             << endl;
+        ;
         getParameters();
     }
     cout << "========================================================" << endl;
 
     // Initialze the Game
+    cout << "\033]0;"
+         << "Notakto - Preparing"
+         << "\007";
     for (int i = 0; i < sizeBoard; i++)
     {
         addPiece();
@@ -48,6 +56,9 @@ int main()
         skills = rand() % 3;
 
     // the Gaming Part
+    cout << "\033]0;"
+         << "Notakto - Gaming"
+         << "\007";
     int PlayerNum = 0;
     string command;
     char moveID;
@@ -73,7 +84,11 @@ int main()
         }
     }
     // the ending part
-    cout << "Every piece in the board was dead." << endl
+    cout << "\033[1;32m"
+         << "Every piece in the board was dead."
+         << "\033[0m" << endl
          << "========================================================" << endl
-         << "Player" << PlayerNum % 2 + 1 << " " << NumToName(PlayerNum % 2 + 1) << " wins." << endl;
+         << "\033[1;33m"
+         << "Player" << PlayerNum % 2 + 1 << " " << NumToName(PlayerNum % 2 + 1) << " wins."
+         << "\033[0m" << endl;
 }

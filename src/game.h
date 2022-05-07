@@ -7,11 +7,11 @@
 
 using namespace std;
 
-// Parameters of the Game
+
 struct Piece
 {
     char ID;
-    bool piece[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    bool piece[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};  // the chess represents "1"
 };
 
 // A linked lists to handle the function of add/delete board during runtime
@@ -21,11 +21,12 @@ struct Board
     Board *next;
 };
 
-extern int isGuest;
-extern int sizeBoard, skills;
-extern string PlayerA, PlayerB;
-extern int winCountA, winCountB;
-extern char globalID; // globalID is the ID of the tail Piece in the Board.
+// Global Parameters of the Game
+extern int isGuest; //flag of determing whether the players are guests
+extern int sizeBoard, skills;  //size of Board, remaining number of skills
+extern string PlayerA, PlayerB; // name of players
+extern int winCountA, winCountB; // count of winning number of players
+extern char globalID; // the ID of the tail Piece in the Board.
 extern Board *board;
 
 // initializing.cpp

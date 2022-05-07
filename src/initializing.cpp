@@ -1,11 +1,11 @@
-// Contaning the function for initaling before the game starts.
+// Contaning the function before/after the game.
 #include "game.h"
 #include <fstream>
 
 using namespace std;
 
+// The name setting of the initial interface
 void NameSetting()
-//The name setting of the initial interface 
 {
     system("clear");
     fstream prefSet;
@@ -13,14 +13,18 @@ void NameSetting()
     string userInput;
     cout << "========================================================" << endl;
 
-    cout << "What's the name of Player 1? (no containing spaces)" << endl
-         << ": ";
+    cout << "\033[1;1m"
+         << "What's the name of Player 1? (no containing spaces)" << endl
+         << ": "
+         << "\033[0m";
     cin >> userInput;
     prefSet << userInput << " ";
 
     cout << endl
+         << "\033[1;1m"
          << "What's the name of Player 2? (no containing spaces)" << endl
-         << ": ";
+         << ": "
+         << "\033[0m";
     cin >> userInput;
     prefSet << userInput << endl;
 
@@ -32,7 +36,7 @@ void NameSetting()
 }
 
 bool showWelcome()
-//welcome interface
+// welcome interface
 {
     string userInput;
     if (isGuest == 1)
@@ -47,12 +51,16 @@ bool showWelcome()
         prefFile >> PlayerA >> PlayerB >> winCountA >> winCountB;
         cout << "========================================================" << endl;
         cout << "Welcome to the Notakto, " << PlayerA << " & " << PlayerB << "." << endl
+             << "\033[32m"
              << "   Total battle times: " << winCountA + winCountB << "." << endl
              << "   Player " << PlayerA << " wins: " << winCountA << "." << endl
              << "   Player " << PlayerB << " wins: " << winCountB << "." << endl
+             << "\033[0m"
              << "========================================================" << endl;
     }
-    cout << " Select Command to Continue (PLAY / NAME / EXIT)" << endl
+    cout << "\033[1;1m"
+         << " Select Command to Continue (PLAY / NAME / EXIT)"
+         << "\033[0m" << endl
          << ": ";
     cin >> userInput;
     if (userInput == "PLAY")
@@ -69,26 +77,23 @@ bool showWelcome()
         exit(0);
 }
 
+// set the default parameter for generating the board
 void getParameters()
-// the number of boards that players want to play
 {
     srand(time(NULL));
     int sizeB;
     cout << "Board (0 or 1-5): ";
     cin >> sizeB;
     if (sizeB >= 1 && sizeB <= 5)
-    {
         sizeBoard = sizeB;
-    }
-
     else if (sizeB == 0)
         sizeBoard = rand() % 4 + 1;
     else
         sizeBoard = -1;
 }
 
+// add the times of winner to the saving file
 void addWins(int Player)
-//the winner of the game
 {
     string dummy;
     fstream prefFile;

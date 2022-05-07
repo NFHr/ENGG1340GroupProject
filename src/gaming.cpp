@@ -1,9 +1,10 @@
 #include "game.h"
 
+// Judging the correctness of the input
+// return the command flag for the driver part
 string judgeInput(char &moveID, int &movePos, int PlayerNum)
 {
     string userInput;
-    //skill function and judge the proper input of the player 
     while (1)
     {
         cout << "Player " << PlayerNum << " \"" << NumToName(PlayerNum) << "\" "
@@ -27,13 +28,15 @@ string judgeInput(char &moveID, int &movePos, int PlayerNum)
                 return "MOVE";
             }
         }
-        cout << "Invalid Move!" << endl;
+        cout << "\033[1;31m"
+             << "Invalid Move!"
+             << "\033[0m" << endl;
     }
     return "";
 }
 
-string NumToName(int PlayerNum) 
-// order of player
+// return the true player name based on the opponent id.
+string NumToName(int PlayerNum)
 {
     if (PlayerNum == 1)
         return PlayerA;
@@ -41,22 +44,26 @@ string NumToName(int PlayerNum)
         return PlayerB;
 }
 
+// handle SPECIAL SKILL
 void skill(int PlayerNum)
-//SPECIAL SKILL FUNCTION
 {
     skills--;
-    if (countLength() == sizeBoard && sizeBoard != 1)
-        cout << "Opponent Changed." << endl;
+    if (countLength() == sizeBoard && sizeBoard != 1) // Rule: if the board is full and the default size is not 1
+        cout << "\033[1;33m"
+             << "Opponent Changed."
+             << "\033[0m" << endl;
     else
     {
-        cout << "New Piece Appended." << endl;
+        cout << "\033[1;33m"
+             << "New Piece Appended."
+             << "\033[0m" << endl;
         addPiece();
         Move(globalID - 1, rand() % 9);
     }
 }
 
+// JUDGE whether the piece is dead
 bool judgeDead(Board Piece)
-// JUDGE the  proper monment of the piece
 {
     if (Piece.p.piece[0] == Piece.p.piece[1] && Piece.p.piece[1] == Piece.p.piece[2] && Piece.p.piece[0] == true)
         return true;
@@ -77,8 +84,8 @@ bool judgeDead(Board Piece)
     return false;
 }
 
+// move one chess in the piece
 void Move(char moveID, int movePos)
-//move the piece in the board
 {
     Board *moveNode = board;
     while (moveNode)
@@ -86,7 +93,7 @@ void Move(char moveID, int movePos)
         if (moveNode->p.ID == moveID)
         {
             moveNode->p.piece[movePos] = true;
-            if (judgeDead(*moveNode))
+            if (judgeDead(*moveNode)) // judge whether the piece is dead after one move
             {
                 deletePiece(moveID);
             }

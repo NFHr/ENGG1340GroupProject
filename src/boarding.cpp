@@ -1,6 +1,7 @@
 #include "game.h"
 
-void addPiece() // Append the piece backward
+// append the piece backward to the board(linked list)
+void addPiece() 
 {
     Board *moveNode = board;
     Board *newPiece = new Board;
@@ -18,6 +19,7 @@ void addPiece() // Append the piece backward
     globalID++;
 }
 
+//delete one piece in the board(linked list)
 void deletePiece(char ID)
 {
     int pos = findPiece(ID);
@@ -46,8 +48,8 @@ void deletePiece(char ID)
     }
 }
 
+// return the position of one pieces in the board(linked list)
 int findPiece(char aID)
-// FIND piece of the move 
 {
     int count = 0;
     Board *moveNode = board;
@@ -64,6 +66,7 @@ int findPiece(char aID)
     return -1;
 }
 
+// return the length of the board
 int countLength()
 {
     Board *moveNode = board;
@@ -76,9 +79,10 @@ int countLength()
     return count;
 }
 
+//print the full board(linked list)
 void printBoard()
-//move piece x to the board
 {
+    cout << "\033[1;1m";
     Board *cutNode = board;
     Board *moveNode = cutNode;
     while (moveNode)
@@ -106,5 +110,6 @@ void printBoard()
         cout << endl;
         count += 3;
     }
+    cout << "\033[0m";
 }
 
